@@ -2,13 +2,12 @@ var $translatorButton = $('#translator-button'); //assigning buttons from homepa
 var $dictionaryButton = $('#dictionary-button');
 
 $translatorButton.on('click', function () {
-    window.location = './translate.html';
+    window.location.href = '/translate';
 });
 // calling button-clicks to load corresponding pages
 $dictionaryButton.on('click', function () {
-    window.location = './dictionary.html';
+    window.location.href = '/dictionary';
 });
-////////////////////////////////////////////////////////////////////////////
 
 
 // - https://api.mymemory.translated.net/get?q=Hello World!&langpair=en|it
@@ -52,11 +51,8 @@ $translateButton.on('click', function (event) {
     else {
         $alerts.empty();
         $.ajax({
-            url: queryURL,
+            url: '/translate/' + queryURL + $translate,
             method: 'GET',
-            data: {
-                q: $translate
-            },
             success: function (response) {
                 console.log(response);
 

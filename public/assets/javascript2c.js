@@ -2,9 +2,6 @@ var $wordInput = $('#wordInput');
 var $dictionarySubmit = $('#dictionarySubmit');
 var $searchResults = $('.search-results');
 
-
-
-
 $dictionarySubmit.on('click', function (event) {
     event.preventDefault();
     console.log('this is working');
@@ -36,12 +33,8 @@ $dictionarySubmit.on('click', function (event) {
         $searchResults.empty();
         $('#wordInput').val('');
         $.ajax({
-            url: queryURL,
+            url: '/wordsearch/' + queryURL,
             method: 'GET',
-            headers: {
-                "X-Mashape-Key": '',
-                'Accept': 'application/json'
-            },
             success: function (response) {
                 console.log(response);
                 var word = response.word;
