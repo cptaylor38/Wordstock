@@ -26,8 +26,6 @@ $translateButton.on('click', function (event) {
 
     var $translate = $phrase2translate.val().trim();
 
-    var queryURL = 'https://api.mymemory.translated.net/get?' + pairTest;
-
     var testInput = $translate.replace(/\s+/g, '');
 
     //
@@ -50,12 +48,12 @@ $translateButton.on('click', function (event) {
     }
     else {
         $alerts.empty();
+        $phrase2translate.val('');
         $.ajax({
-            url: '/translate/' + queryURL + $translate,
+            url: '/translate/' + `q=${$translate}&${pairTest}`,
             method: 'GET',
             success: function (response) {
                 console.log(response);
-
                 var translatedText = response.responseData.translatedText;
 
                 var $resultsDiv = $('#resultsField');

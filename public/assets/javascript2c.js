@@ -8,9 +8,6 @@ $dictionarySubmit.on('click', function (event) {
 
     var $alerts = $('#alerts');
     var $word2search = $wordInput.val().trim().toLowerCase();
-    var queryURL = 'https://wordsapiv1.p.mashape.com/words/' + $word2search;
-
-
 
     if ($word2search === '' || /[^a-z]/i.test($word2search)) {
         $wordInput.addClass('animated wobble');
@@ -33,7 +30,7 @@ $dictionarySubmit.on('click', function (event) {
         $searchResults.empty();
         $('#wordInput').val('');
         $.ajax({
-            url: '/wordsearch/' + queryURL,
+            url: '/wordsearch/' + `${$word2search}`,
             method: 'GET',
             success: function (response) {
                 console.log(response);
@@ -72,31 +69,37 @@ $dictionarySubmit.on('click', function (event) {
 
 
                 //creating a list of definitions found at response.results[index].definition
-                definitionList.forEach(function (element) {
-                    var $synonymArray = element.synonyms;
-                    var $newDefinition = $('<p>');
-                    $newDefinition.attr('id', 'newDefinition');
-                    console.log($synonymArray);
+                if (definitionList) {
+                    definitionList.forEach(function (element) {
+                        var $synonymArray = element.synonyms;
+                        var $newDefinition = $('<p>');
+                        $newDefinition.attr('id', 'newDefinition');
+                        console.log($synonymArray);
 
 
-                    var $synonym = $('<h5>');
-                    $synonym.attr('id', 'synonym');
+                        var $synonym = $('<h5>');
+                        $synonym.attr('id', 'synonym');
 
-                    if (element.hasOwnProperty('synonyms')) {
-                        $newDefinition.text(element.definition);
-                        $synonym.text($synonymArray.join(', '));
-                        console.log('this ran');
-                        $newDefinition.prepend($synonym);
-                        $listBody.append($newDefinition);
-                    }
-                    else {
-                        $newDefinition = $('<li>');
-                        $newDefinition.text(element.definition);
-                        $noSynBody.append($newDefinition);
-                    }
-                })
-                $definitionBody.append($listBody, $noSynonymCard);
-                $searchResults.append($wordDefined, $definitionCard);
+                        if (element.hasOwnProperty('synonyms')) {
+                            $newDefinition.text(element.definition);
+                            $synonym.text($synonymArray.join(', '));
+                            console.log('this ran');
+                            $newDefinition.prepend($synonym);
+                            $listBody.append($newDefinition);
+                        }
+                        else {
+                            $newDefinition = $('<li>');
+                            $newDefinition.text(element.definition);
+                            $noSynBody.append($newDefinition);
+                        }
+                    })
+                    $definitionBody.append($listBody, $noSynonymCard);
+                    $searchResults.append($wordDefined, $definitionCard);
+                }
+                else {
+                    $searchResults.append(`<h1>No results found for: ${$word2search}.</h1>`);
+                }
+
             },
             error: function (error) {
                 console.log(error);
