@@ -1,11 +1,14 @@
 # project1
 
-Todos:
+A translator/dictionary application that translates 1 language to another using the [My Memory API](https://mymemory.translated.net/) and the [Words API](https://www.wordsapi.com/)
 
-1. Add simple node server - readd api keys with env variables. 
-2. Check response data to see if the translator api sends images for special characters or if there is a way to adjust for allowance of special characters.
-3. Update readme.
+It currently translates to Russian, Spanish, French, Italian, Zulu, Chinese, Latin, Gaelic, and Japanese.
 
+Translator functionality:
+*Need to find a way to implement a way for it to register foreign/special characters.
+
+Word functionality: 
+*Definitions with associated synonyms are grouped at the top, if no matching synonyms are found the definition results will be grouped at the bottom.
 
 
 
