@@ -17,7 +17,7 @@ Translator functionality:
 
 Dictionary -
 
-An input field for a word you would like to search, the word, via the API docs, must be English.
+An input field for a word you would like to search, the word must be English.
 Word functionality: 
 *Definitions with associated synonyms are grouped at the top, if no matching synonyms are found the definition results will be grouped at the bottom.
 
