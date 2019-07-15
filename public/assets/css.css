@@ -12,6 +12,9 @@ body
     /* background-color: rgb(161,0,114); */
     padding: 0;
     background: url('../assets/images1/bodyBackground.jpg');
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -22,13 +25,15 @@ body
     background-size: cover;
     text-align: center;
     margin: 0;
+    max-width:80%;
+    margin: auto;
     
 }
 
 /*added h1 to translate and dictionary html, replaced h1 on index html - matched styling*/
 .title
 {
-    font-size: 90px;
+    font-size: 4em;
     font-family: 'Ultra', serif;
     color: wheat;
     text-shadow:
@@ -80,7 +85,7 @@ body
 {
     display: inline-block;
     align-items: center;
-    width: 100%;
+    max-width: 80%;
     margin: auto;
 }
 
@@ -167,9 +172,7 @@ body
 }
 .paragraphs {
     color:black;
-
     text-align: center;
-    font-size: 25px;
     font-family:  'Ultra', serif;
     background: url('../assets/images1/bodyBackground.jpg');
     /* border: 1px solid white; */
@@ -183,10 +186,10 @@ body
      1px  1px 5px #555; */
 }
 .ourPage {
-    font-size: 20px;
+    font-size: 1em;
 }
 .welcome {
-    font-size: 45px;
+    font-size: 2em;
     /* color: black; */
     color:black;
 }
@@ -218,9 +221,11 @@ body
 }
 .sushi {
     background-color: rgb(161,0,114);
+    width: 100%;
 }
 .tacos {
     background-color: rgb(161,0,114);
+    width: 100%;
 }
 
 #definitionCard-header
@@ -231,4 +236,60 @@ body
 #resultsField
 {
     font-size: 34px;
+}
+
+#carousel-homepage\ container
+{
+    max-width: 80%;
+    display: flex;
+    margin: auto;
+}
+
+@media(max-width: 768px)
+{
+    .title
+    {
+        font-size: 3em;
+    }
+}
+
+@media(max-width: 596px)
+{
+    .pageHeader
+    {
+        max-width: 100%;
+    }
+
+    #carousel-homepage\ container
+    {
+        max-width: 100%;
+    }
+
+    .sushi
+    {
+        min-width: 100%;
+    }
+}
+
+@media (min-width: 576px)
+{
+    .container {
+        min-width: 100%;
+    }
+}
+
+@media(max-width: 480px)
+{
+    .title
+    {
+        font-size: 3em;
+    }
+}
+
+@media(max-width: 370px)
+{
+    .title
+    {
+        font-size: 2.5em;
+    }
 }

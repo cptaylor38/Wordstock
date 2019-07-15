@@ -14,7 +14,6 @@ $dictionaryButton.on('click', function () {
 
 var $translateButton = $('#translateButton');
 var $phrase2translate = $('#phrase2translate');
-console.log($translateButton);
 
 $translateButton.on('click', function (event) {
     event.preventDefault();
@@ -26,10 +25,9 @@ $translateButton.on('click', function (event) {
 
     var $translate = $phrase2translate.val().trim();
 
-    var testInput = $translate.replace(/\s+/g, '');
+    // var testInput = $translate.replace(/\s+/g, '');
 
-    //
-    if ($translate === '' || /[^a-z]/i.test(testInput)) {
+    if ($translate === '') {
         $('#resultsField').empty();
         $phrase2translate.addClass('animated wobble');
         $phrase2translate.css('animation-duration', '2s');
@@ -40,10 +38,7 @@ $translateButton.on('click', function (event) {
         });
 
         if ($phrase2translate.val() === '') {
-            $alerts.text('You have to enter a word first.');
-        }
-        else {
-            $alerts.text("Invalid word. You can only use letters.");
+            $alerts.text('You must enter a word first.');
         }
     }
     else {
