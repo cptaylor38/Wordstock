@@ -1,6 +1,6 @@
 # [Wordstock](https://wordstock-app.herokuapp.com/)
 
-![App Homepage](./public/assets/images1/Screenshot (56).png)
+![App Homepage](/public/assets/images1/Screenshot (56).png)
 
 A translator/dictionary application that translates 1 language to another using the [My Memory API](https://mymemory.translated.net/) and the [Words API](https://www.wordsapi.com/)
 
